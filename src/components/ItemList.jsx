@@ -7,17 +7,28 @@ export default function ItemList() {
       {  item: "frozen pizza", amount: 12 },
       { item:"macbook air", amount: 899 }
     ])
+    const [newItem, setNewItem] = useState("")
+    const [newAmount, setAmount] = useState(0)
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e.target)
+        setItems([...items], {
+            item: newItem,
+            amount: newAmount
+        }, [])
+        console.log(items)
     }
   
     return (
         <div>
             {items.map(item => <Item item={item} key={item.amount} />)}
             <form onSubmit={handleSubmit}>
-                <input type="text" name="text"/>
+                <label>Name:</label>
+                <input type="text" name="item" value={newItem} onChange={(e) => setNewItem(e.target.value)}/> 
+                <br/>
+                <label>Amount:</label>
+                <input type="number" name="amount" value={newAmount} onChange={(e) => setAmount(parseInt(e.target.value))}/>
+                <br/>
                 <button type="submit">Submit</button>
             </form>
         </div>
