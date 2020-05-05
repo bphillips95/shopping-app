@@ -1,17 +1,29 @@
-import React, {useContext} from 'react'
-import {Item} from './Item'
-import {GlobalContext} from '../context/GlobalState'
-
+import React, {useState} from 'react'
+import Item from './Item'
 
 export default function ItemList() {
 
-    const {transactions} = useContext(GlobalContext)
-  
+    const [item, setItem] = useState([])
+
+    const handleClick = (e) => {
+        setItem([
+            ...item,
+            {
+            name: "Pizza",
+            amount: 24
+        }])
+    }
+    
+
+    // const itemList = item.map(item => {
+    //     return <div>{item.name} - ${item.amount} 
+    //         <button className="btn" onClick={handleClick} value={item.name}>Buy</button> </div>
+    // })
+
     return (
-        <div>
-            <ul className="list">
-        {transactions.map(transaction => (<Item key={transaction.id} transaction={transaction} />))}
-      </ul>
-        </div>
+        <ul className="list">
+            {item.map(item => item.name)}
+            <button className="btn" onClick={handleClick} value={item.name}>Buy</button> 
+        </ul>
     )
 }
