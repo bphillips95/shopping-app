@@ -1,18 +1,19 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
 import Item from './Item'
+import { Context } from '../context/GlobalState'
 
 export default function ItemList() {
 
-    const [item, setItem] = useState([])
+    const context = useContext(Context)
 
-    const handleClick = (e) => {
-        setItem([
-            ...item,
-            {
-            name: "Pizza",
-            amount: 24
-        }])
-    }
+    // const handleClick = (e) => {
+    //     setItem([
+    //         ...item,
+    //         {
+    //         name: "Pizza",
+    //         amount: 24
+    //     }])
+    // }
     
 
     // const itemList = item.map(item => {
@@ -22,8 +23,9 @@ export default function ItemList() {
 
     return (
         <ul className="list">
-            {item.map(item => item.name)}
-            <button className="btn" onClick={handleClick} value={item.name}>Buy</button> 
+            {context}
+            {/* {item.map(item => item.name)}
+            <button className="btn" onClick={handleClick} value={item.name}>Buy</button>  */}
         </ul>
     )
 }
