@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
 
-  const [items, setItems] = useState(["Pizza"])
+  const [items, setItems] = useState([])
 
   // const value = useMemo(() => ({items, setItems}), [items, setItems]);
 
