@@ -1,10 +1,19 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import Item from './Item'
 import { Context } from '../context/GlobalState'
 
 export default function ItemList() {
 
     const context = useContext(Context)
+
+    const items = ["Pizza", "Salmon", "Cheese", "Fries"]
+
+    const [cart, setCart] = useState([])
+
+    const handleBuy = (item) => {
+        console.log(item)
+        setCart(item)
+    }
 
     // const handleClick = (e) => {
     //     setItem([
@@ -22,10 +31,14 @@ export default function ItemList() {
     // })
 
     return (
+        <>
         <ul className="list">
             {context}
-            {/* {item.map(item => item.name)}
-            <button className="btn" onClick={handleClick} value={item.name}>Buy</button>  */}
+            {items.map(item => <Item item={item} handleBuy={handleBuy}/>)}
         </ul>
+        <div>
+            {cart.length > 0 ? cart : "Cart is Empty"}
+        </div>
+        </>
     )
 }

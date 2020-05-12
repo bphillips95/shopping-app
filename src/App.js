@@ -3,7 +3,6 @@ import ItemList from './components/ItemList'
 import Header from './components/Header'
 import {AddItem} from './components/AddItem'
 import {Context} from './context/GlobalState'
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import './App.css';
 
 function App() {
@@ -15,12 +14,10 @@ function App() {
   return (
       <div className="container">
         <Context.Provider value={ items} >
-          <Router>
         <Header/>
-        <Route path="/items" component={ItemList}></Route>
+        <ItemList/>
        
         <AddItem/>
-        </Router>
         </Context.Provider>
       </div>
   );

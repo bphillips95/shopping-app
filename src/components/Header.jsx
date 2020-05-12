@@ -6,7 +6,7 @@ function Header() {
 
     // const [items, setItems] = useContext(Context)
     return (
-            <h2>Shopping App <Link to="/items">Items</Link> <Link to="/">Home</Link></h2>
+            <h2>Shopping App </h2>
     )
 }
 

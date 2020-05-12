@@ -1,10 +1,17 @@
 import React from 'react'
 
-export default function Item({item}) {
+export default function Item({item,handleBuy}) {
+
+    const handleClick = (e) => {
+        // console.log(e.target.value)
+        handleBuy(e.target.value)
+    }
     return (
+        <>
         <div>
-            {item.name} - ${item.amount}
-            <button className="btn">Buy</button>
+            {item} - $12
+            <button className="btn" value={item} onClick={handleClick} >Buy</button>
         </div>
+        </>
     )
 }

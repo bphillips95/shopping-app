@@ -14,7 +14,7 @@ export const AddItem = () => {
     
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
                 <label>Name:
                 <input type="text" name="name" value={value} onChange={(e) => setvalue(e.target.value)} />
                 </label>
@@ -22,7 +22,7 @@ export const AddItem = () => {
                 <input type="number" name="amount" value={amount} onChange={(e) => setamount(e.target.value)} />
                 </label>
                 <input className="btn" type="submit" value="Submit"/>
-            </form>
+            </form> */}
         </>
     )
 }
