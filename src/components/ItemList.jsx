@@ -11,25 +11,9 @@ export default function ItemList() {
     const [cart, setCart] = useState([])
 
     const handleBuy = (item) => {
-        console.log(item)
-        setCart(item)
+        setCart([...cart,item])
     }
-
-    // const handleClick = (e) => {
-    //     setItem([
-    //         ...item,
-    //         {
-    //         name: "Pizza",
-    //         amount: 24
-    //     }])
-    // }
     
-
-    // const itemList = item.map(item => {
-    //     return <div>{item.name} - ${item.amount} 
-    //         <button className="btn" onClick={handleClick} value={item.name}>Buy</button> </div>
-    // })
-
     return (
         <>
         <ul className="list">
@@ -37,7 +21,7 @@ export default function ItemList() {
             {items.map(item => <Item item={item} handleBuy={handleBuy}/>)}
         </ul>
         <div>
-            {cart.length > 0 ? cart : "Cart is Empty"}
+            {cart.length > 0 ? cart.map(item => <div>{item}</div>) : "Cart is Empty"}
         </div>
         </>
     )

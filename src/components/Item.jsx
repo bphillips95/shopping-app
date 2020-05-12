@@ -3,9 +3,9 @@ import React from 'react'
 export default function Item({item,handleBuy}) {
 
     const handleClick = (e) => {
-        // console.log(e.target.value)
         handleBuy(e.target.value)
     }
+    
     return (
         <>
         <div>
