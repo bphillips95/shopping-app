@@ -8,12 +8,13 @@ import './App.css';
 function App() {
 
   const [items, setItems] = useState([])
+  const value = [items,setItems]
 
   // const value = useMemo(() => ({items, setItems}), [items, setItems]);
 
   return (
       <div className="container">
-        <Context.Provider value={ items} >
+        <Context.Provider value={value} >
         <Header/>
         <ItemList/>
        

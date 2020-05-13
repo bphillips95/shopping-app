@@ -1,8 +1,9 @@
 import React, {useState, useContext} from 'react'
+import { Context } from '../context/GlobalState'
 
 export const AddItem = () => {
 
-    // const context = useContext(Context)
+    const context = useContext(Context)
 
     const [value, setvalue] = useState("")
     const [amount, setamount] = useState(0)

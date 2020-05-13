@@ -5,7 +5,6 @@ export default function Item({item,handleBuy}) {
     const handleClick = (e) => {
         handleBuy(e.target.value)
     }
-    
     return (
         <>
         <div>
