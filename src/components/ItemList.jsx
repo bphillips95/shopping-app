@@ -4,15 +4,12 @@ import { Context } from '../context/GlobalState'
 
 export default function ItemList() {
 
-    const {items,setItems} = useContext(Context)
+    const {cart,addItem} = useContext(Context)
 
     const itemList = ["Pizza", "Salmon", "Cheese", "Fries"]
 
-    const [cart, setCart] = useState([])
-
     const handleBuy = (item) => {
-        setCart([...cart,item])
-        // setItems(item)
+        addItem(item)
     }
     
     return (
