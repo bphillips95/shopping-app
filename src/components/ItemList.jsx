@@ -18,20 +18,23 @@ export default function ItemList() {
             alert("You don't have enough money")
         }
     }
-    
     return (
         <>
         <h3>You have ${money}</h3>
         <ul className="list">
             {itemList.map(item => <Item item={item} handleBuy={handleBuy}/>)}
         </ul>
-        <div>
-            <h4>Cart:</h4>
+        <div style={{
+            position: "absolute",
+            left: '80%',
+            top: '10%'
+        }}>
+            <h3>Cart:</h3>
             {cart.length > 0 ? cart.map(
                 item => <Cart item={item}/>
                 ) : "Cart is Empty"}
         </div>
-        
+
         </>
     )
 }
