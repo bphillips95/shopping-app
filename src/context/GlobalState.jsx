@@ -4,8 +4,7 @@ import reducer from './Reducer'
 const initialState = {
     cart: []
 }
-
-export const Context = createContext([])
+export const Context = createContext()
 
 export const GlobalProvider = ({children}) => {
     

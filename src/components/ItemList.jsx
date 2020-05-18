@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react'
 import Item from './Item'
+import Cart from './Cart'
 import { Context } from '../context/GlobalState'
 
 export default function ItemList() {
@@ -9,7 +10,11 @@ export default function ItemList() {
     const itemList = ["Pizza", "Salmon", "Cheese", "Fries"]
 
     const handleBuy = (item) => {
+        if(cart.includes(item)) {
+            alert("Item is already in cart")
+        } else {
         addItem(item)
+        }
     }
     
     return (
@@ -18,7 +23,9 @@ export default function ItemList() {
             {itemList.map(item => <Item item={item} handleBuy={handleBuy}/>)}
         </ul>
         <div>
-            {cart.length > 0 ? cart.map(item => <div>{item}</div>) : "Cart is Empty"}
+            {cart.length > 0 ? cart.map(
+                item => <Cart item={item}/>
+                ) : "Cart is Empty"}
         </div>
         </>
     )
