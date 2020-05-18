@@ -9,7 +9,7 @@ export default function Item({item,handleBuy}) {
         <>
         <div>
             {item} - $12
-            <button className="btn" value={item} onClick={handleClick} >Buy</button>
+            <button className="btn" value={item} onClick={handleClick} >Add to cart</button>
         </div>
         </>
     )

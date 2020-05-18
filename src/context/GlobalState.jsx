@@ -2,7 +2,8 @@ import React, { createContext, useReducer } from 'react'
 import reducer from './Reducer'
 
 const initialState = {
-    cart: []
+    cart: [],
+    money: 25
 }
 export const Context = createContext()
 
@@ -11,6 +12,9 @@ export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     function addItem(payload) {
+      dispatch({
+        type: 'SPEND_MONEY',
+      })
         dispatch({
             type: 'ADD_TRANSACTION',
             payload
@@ -18,7 +22,8 @@ export const GlobalProvider = ({children}) => {
     }
     return (<Context.Provider value={{
         cart: state.cart,
-        addItem
+        addItem,
+        money: state.money
       }}>
         {children}
       </Context.Provider>);
