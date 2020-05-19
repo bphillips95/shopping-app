@@ -14,6 +14,7 @@ export const GlobalProvider = ({children}) => {
     function addItem(payload) {
       dispatch({
         type: 'SPEND_MONEY',
+        payload
       })
         dispatch({
             type: 'ADD_TRANSACTION',

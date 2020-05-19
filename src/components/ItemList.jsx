@@ -7,12 +7,18 @@ export default function ItemList() {
 
     const {cart,addItem,money} = useContext(Context)
 
-    const itemList = ["Pizza", "Salmon", "Cheese", "Fries"]
+    const itemList = [
+        {name: "Pizza", amount: 7, cost: 12 },
+        {name: "Salmon", amount: 21, cost: 15 },
+        {name: "Cheese", amount: 14, cost: 22 },
+        {name: "Fries", amount: 40, cost: 3 },
+    ]
+
 
     const handleBuy = (item) => {
         if(cart.includes(item)) {
             alert("Item is already in cart")
-        } else if(money > 12) {
+        } else if(money > item.cost) {
         addItem(item)
         } else {
             alert("You don't have enough money")
