@@ -13,7 +13,6 @@ export default function ItemList() {
         {name: "Cheese", amount: 14, cost: 22 },
         {name: "Fries", amount: 40, cost: 3 },
     ])
-
     const handleBuy = (item) => {
         if(cart.includes(item.name)) {
             alert("Item is already in cart")
@@ -34,11 +33,13 @@ export default function ItemList() {
         <ul className="list">
             {itemList.map(item => <Item item={item} handleBuy={handleBuy}/>)}
         </ul>
-        <div style={{
-            position: "absolute",
-            left: '80%',
-            top: '10%'
-        }}>
+        <div 
+        // style={{
+        //     position: "absolute",
+        //     left: '80%',
+        //     top: '10%'
+        // }}
+        >
             <h3>Cart:</h3>
             {cart.length > 0 ? cart.map(
                 item => <Cart item={item}/>
