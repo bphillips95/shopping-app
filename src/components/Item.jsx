@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Item({item,handleBuy}) {
-
+if(item.amount > 0) {
     return (
         <>
         <div class="card" style={{width: '18rem'}}>
@@ -16,5 +16,10 @@ export default function Item({item,handleBuy}) {
     </div>
 </div>
         </>
+    ) 
+} else { 
+    return(
+    <div> Sorry, {item.name} is sold out</div>
     )
+}
 }

@@ -37,7 +37,7 @@ export default function ItemList() {
          alert("You do not have enough money in your account")
         }
     }
-
+    
     return (
         <>
         <h3  style={{
