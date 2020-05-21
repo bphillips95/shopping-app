@@ -12,10 +12,10 @@ export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     function addItem(payload) {
-      dispatch({
-        type: 'SPEND_MONEY',
-        payload
-      })
+      // dispatch({
+      //   type: 'SPEND_MONEY',
+      //   payload
+      // })
         dispatch({
             type: 'ADD_TRANSACTION',
             payload

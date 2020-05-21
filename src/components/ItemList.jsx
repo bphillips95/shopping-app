@@ -26,24 +26,45 @@ export default function ItemList() {
             alert("You don't have enough money")
         }
     }
+    const checkOut = () => {
+        let newArr = []
+        let total = 0 
+       const cartAmounts = cart.map(cart => newArr.push(cart.cost))
+       console.log(cartAmounts)
+       const cartPrice = cartAmounts.map(amount => {
+           total += amount
+           return total
+        })
+        console.log(cartPrice)
+    }
 
     return (
         <>
-        <h3>You have ${money}</h3>
-        <ul className="list">
+        <h3  style={{
+            position: "absolute",
+            left: '10%',
+            top: '20%'
+        }}>You have ${money}</h3>
+        <ul  style={{
+            position: "absolute",
+            left: '37%',
+            top: '10%'
+        }}>
             {itemList.map(item => <Item item={item} handleBuy={handleBuy}/>)}
         </ul>
         <div 
-        // style={{
-        //     position: "absolute",
-        //     left: '80%',
-        //     top: '10%'
-        // }}
+        style={{
+            position: "absolute",
+            left: '80%',
+            top: '10%'
+        }}
         >
             <h3>Cart:</h3>
             {cart.length > 0 ? cart.map(
                 item => <Cart item={item}/>
                 ) : "Cart is Empty"}
+                <br/>
+                <button className="btn" onClick={checkOut}  >Check Out</button>
         </div>
 
         </>
