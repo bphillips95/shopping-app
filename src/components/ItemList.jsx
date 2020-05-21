@@ -5,7 +5,7 @@ import { Context } from '../context/GlobalState'
 
 export default function ItemList() {
 
-    const {cart,addItem,money} = useContext(Context)
+    const {cart,addItem,money,spendMoney} = useContext(Context)
 
     const [itemList, setItemList] = useState([
         {name: "Pizza", amount: 7, cost: 12 },
@@ -28,14 +28,14 @@ export default function ItemList() {
     }
     const checkOut = () => {
         let newArr = []
-        let total = 0 
-       const cartAmounts = cart.map(cart => newArr.push(cart.cost))
-       console.log(cartAmounts)
-       const cartPrice = cartAmounts.map(amount => {
-           total += amount
-           return total
-        })
-        console.log(cartPrice)
+       cart.map(item => newArr.push(item.cost))
+       const cartPrice = newArr.reduce((a,b) => a+b)
+        if(money > cartPrice) {
+            spendMoney(cartPrice)
+         alert("Your purchase was succesfull") 
+        } else {
+         alert("You do not have enough money in your account")
+        }
     }
 
     return (
@@ -64,7 +64,9 @@ export default function ItemList() {
                 item => <Cart item={item}/>
                 ) : "Cart is Empty"}
                 <br/>
-                <button className="btn" onClick={checkOut}  >Check Out</button>
+              <button
+              disabled= {cart.length > 0 ? false : true}
+              className="btn" onClick={checkOut}  >Check Out</button> 
         </div>
 
         </>

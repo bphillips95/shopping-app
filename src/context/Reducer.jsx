@@ -7,7 +7,8 @@ export default (state, { type, payload }) => {
     case 'SPEND_MONEY':
         return {
             ...state,
-            money: state.money - payload.cost
+            money: state.money - payload,
+            cart: []
         }
     default:
         return state
