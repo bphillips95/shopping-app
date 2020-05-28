@@ -1,9 +1,8 @@
 import React from 'react'
 
 export default function Item({item,handleBuy}) {
-if(item.amount > 0) {
+if(item.amount > 0) { 
     return (
-        <>
         <div class="card" style={{width: '18rem'}}>
   <div class="card-body">
     <h5 class="card-title">{item.name}</h5>
@@ -15,7 +14,6 @@ if(item.amount > 0) {
     <small class="text-muted">{item.amount > 10 ? "In Stock" : `Hurry, there are only ${item.amount} left!` }</small>
     </div>
 </div>
-        </>
     ) 
 } else { 
     return(
