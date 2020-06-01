@@ -37,6 +37,13 @@ export default function ItemList() {
          alert("You do not have enough money in your account")
         }
     }
+    const remove = (item) => {
+        removeItem(item)
+        setItemList(
+            [...itemList],
+            item.amount++
+            )
+    }
     
     return (
         <>
@@ -61,7 +68,7 @@ export default function ItemList() {
         >
             <h3>Cart:</h3>
             {cart.length > 0 ? cart.map(
-                item => <Cart item={item} remove={removeItem}/>
+                item => <Cart item={item} remove={remove}/>
                 ) : "Cart is Empty"}
                 <br/>
               <button
