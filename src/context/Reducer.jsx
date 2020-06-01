@@ -10,7 +10,13 @@ export default (state, { type, payload }) => {
             money: state.money - payload,
             cart: []
         }
+    case 'REMOVE_ITEM': 
+        return {
+            ...state,
+            cart: [...state.cart.filter(item => item !== payload)]
+        }
     default:
         return state
     }
 }
+// ...state.filter(city => city !== action.city)

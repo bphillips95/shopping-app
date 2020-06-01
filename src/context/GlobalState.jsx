@@ -23,10 +23,17 @@ export const GlobalProvider = ({children}) => {
         payload
       })
     }
+    function removeItem(payload) {
+      dispatch({
+        type: 'REMOVE_ITEM',
+        payload
+      })
+    }
     return (<Context.Provider value={{
         cart: state.cart,
         addItem,
         spendMoney,
+        removeItem,
         money: state.money
       }}>
         {children}

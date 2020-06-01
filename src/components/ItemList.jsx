@@ -5,7 +5,7 @@ import { Context } from '../context/GlobalState'
 
 export default function ItemList() {
 
-    const {cart,addItem,money,spendMoney} = useContext(Context)
+    const {cart,addItem,money,spendMoney,removeItem} = useContext(Context)
 
     const [itemList, setItemList] = useState([
         {name: "Pizza", amount: 7, cost: 12 },
@@ -61,7 +61,7 @@ export default function ItemList() {
         >
             <h3>Cart:</h3>
             {cart.length > 0 ? cart.map(
-                item => <Cart item={item}/>
+                item => <Cart item={item} remove={removeItem}/>
                 ) : "Cart is Empty"}
                 <br/>
               <button
