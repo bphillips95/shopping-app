@@ -17,6 +17,12 @@ export const GlobalProvider = ({children}) => {
             payload
         })
     }
+    function addSameItem(payload) {
+      dispatch({
+          type: 'ADD_SAME_ITEM',
+          payload
+      })
+  }
     function spendMoney(payload) {
       dispatch({
         type: 'SPEND_MONEY',
@@ -34,6 +40,7 @@ export const GlobalProvider = ({children}) => {
         addItem,
         spendMoney,
         removeItem,
+        addSameItem,
         money: state.money
       }}>
         {children}
