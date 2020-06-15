@@ -29,4 +29,3 @@ export default (state, { type, payload }) => {
         return state
     }
 }
-// ...state.filter(city => city !== action.city)

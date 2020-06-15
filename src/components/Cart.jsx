@@ -5,8 +5,12 @@ export default function Cart({remove,item}) {
     return (
         <>
         <div>
-            {item.name} {item.quantity}
-            <button onClick={() => remove(item)} >X</button>
+        {item.name} <button onClick={() => remove(item)} >X</button>
+        <br/>
+        <small>Quantity - {item.quantity}</small> 
+      
+           
+            
         </div>
         </>
     )

@@ -37,7 +37,7 @@ export default function ItemList() {
        const cartPrice = newArr.reduce((a,b) => a+b)
         if(money > cartPrice) {
             spendMoney(cartPrice)
-         alert("Your purchase was succesfull") 
+         alert("Your purchase was successful") 
         } else {
          alert("You do not have enough money in your account")
         }
