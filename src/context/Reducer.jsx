@@ -8,9 +8,11 @@ export default (state, { type, payload }) => {
         }
     case 'ADD_SAME_ITEM':
         console.log(payload)
+        let newCart = [...state.cart, payload]
+        let unique = [...new Set(newCart)];
         // still running twice
         return { ...state,
-            cart: [...state.cart, payload]
+            cart: unique
         }
     case 'SPEND_MONEY':
         return {

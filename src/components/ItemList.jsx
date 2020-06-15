@@ -18,7 +18,7 @@ export default function ItemList() {
         console.log(cart)
         if(cart.includes(item)) {
            let newItem = {...item, ...item.quantity++}
-           addSameItem(newItem)
+           addSameItem(item)
         } else if(!cart.includes(item)) {
             addItem(item)
         }
@@ -50,7 +50,7 @@ export default function ItemList() {
             item.amount++
             )
     }
-    
+
     return (
         <>
         <h3  style={{
