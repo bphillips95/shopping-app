@@ -5,7 +5,7 @@ export default function Cart({remove,item}) {
     return (
         <>
         <div>
-            {item.name} 
+            {item.name} {item.quantity}
             <button onClick={() => remove(item)} >X</button>
         </div>
         </>

@@ -17,9 +17,12 @@ export default function ItemList() {
         console.log(item)
         console.log(cart)
         if(cart.includes(item)) {
-           addSameItem(item)
-        } else if(money > item.cost) {
-        addItem(item)
+           let newItem = {...item, ...item.quantity++}
+           addSameItem(newItem)
+        } else if(!cart.includes(item)) {
+            addItem(item)
+        }
+        if(money > item.cost) {
         setItemList(
             [...itemList],
             item.amount--

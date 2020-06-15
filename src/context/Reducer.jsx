@@ -2,11 +2,15 @@ export default (state, { type, payload }) => {
     switch (type) {
 
     case 'ADD_TRANSACTION':
-        return { ...state,
-            cart: [...state.cart, payload] }
-    case 'ADD_SAME_ITEM':
+        console.log(payload)
         return { ...state,
             cart: [...state.cart, Object.assign(payload, {quantity: 1})]
+        }
+    case 'ADD_SAME_ITEM':
+        console.log(payload)
+        // still running twice
+        return { ...state,
+            cart: [...state.cart, payload]
         }
     case 'SPEND_MONEY':
         return {
