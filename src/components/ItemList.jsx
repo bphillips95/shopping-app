@@ -8,10 +8,10 @@ export default function ItemList() {
     const {cart,addItem,money,spendMoney,removeItem,addSameItem} = useContext(Context)
 
     const [itemList, setItemList] = useState([
-        {name: "Pizza", amount: 7, cost: 12 },
-        {name: "Salmon", amount: 21, cost: 15 },
-        {name: "Cheese", amount: 14, cost: 22 },
-        {name: "Fries", amount: 40, cost: 3 },
+        {name: "Pizza", amount: 7, cost: 12, img: '' },
+        {name: "Cheerios", amount: 21, cost: 5, img: ''},
+        {name: "Cheese", amount: 14, cost: 22, img: '' },
+        {name: "Fries", amount: 40, cost: 3, img: '' },
     ])
     const handleBuy = (item) => {
         console.log(item)
