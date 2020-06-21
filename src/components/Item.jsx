@@ -4,6 +4,7 @@ export default function Item({item,handleBuy}) {
 if(item.amount > 0) { 
     return (
         <div class="card" style={{width: '18rem'}}>
+             <img src={item.img} class="card-img-top" alt="..."></img>
   <div class="card-body">
     <h5 class="card-title">{item.name}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${item.cost}</h6>

@@ -2,16 +2,20 @@ import React, {useContext, useState} from 'react'
 import Item from './Item'
 import Cart from './Cart'
 import { Context } from '../context/GlobalState'
+import Cheerios from './images/cheerios.jpg'
+import Cheese from './images/cheese.jpg'
+import Fries from './images/fries.jpg'
+import Pizza from './images/pizza-pic.jpg'
 
 export default function ItemList() {
 
     const {cart,addItem,money,spendMoney,removeItem,addSameItem} = useContext(Context)
 
     const [itemList, setItemList] = useState([
-        {name: "Pizza", amount: 7, cost: 12, img: '' },
-        {name: "Cheerios", amount: 21, cost: 5, img: ''},
-        {name: "Cheese", amount: 14, cost: 22, img: '' },
-        {name: "Fries", amount: 40, cost: 3, img: '' },
+        {name: "Pizza", amount: 7, cost: 12, img: Pizza },
+        {name: "Cheerios", amount: 21, cost: 5, img: Cheerios},
+        {name: "Cheese", amount: 14, cost: 22, img: Cheese },
+        {name: "Fries", amount: 40, cost: 3, img: Fries },
     ])
     const handleBuy = (item) => {
         console.log(item)
