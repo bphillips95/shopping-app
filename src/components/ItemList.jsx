@@ -15,7 +15,8 @@ export default function ItemList() {
         {name: "Pizza", amount: 7, cost: 12, img: Pizza },
         {name: "Cheerios", amount: 21, cost: 5, img: Cheerios},
         {name: "Cheese", amount: 14, cost: 22, img: Cheese },
-        {name: "Fries", amount: 40, cost: 3, img: Fries },
+        {name: "Fries", amount: 40, cost: 3, img: Fries }
+        // {name: "Shnitzel", amount: 19, cost: 16, img: ""}
     ])
     const handleBuy = (item) => {
         console.log(item)
@@ -57,22 +58,28 @@ export default function ItemList() {
 
     return (
         <>
-        <h3  style={{
+        
+        <h3 
+         style={{
+            position: "absolute",
+            left: '40%',
+            top: '1%'
+        }}
+        >You have ${money}</h3>
+        <div className="card-group"
+         style={{
             position: "absolute",
             left: '10%',
-            top: '20%'
-        }}>You have ${money}</h3>
-        <ul  style={{
-            position: "absolute",
-            left: '37%',
-            top: '10%'
-        }}>
+            top: '15%',
+            right: '20%'
+        }}
+        >
             {itemList.map(item => <Item item={item} handleBuy={handleBuy}/>)}
-        </ul>
+        </div>
         <div 
         style={{
             position: "absolute",
-            left: '80%',
+            left: '87%',
             top: '10%'
         }}
         >
