@@ -12,7 +12,9 @@ function App() {
   // const value = useMemo(() => ({items, setItems}), [items, setItems]);
 
   return (
-      <div className="container">
+      <div 
+      // className="container"
+      >
         <GlobalProvider >
         <ItemList/>
         </GlobalProvider>

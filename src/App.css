@@ -20,8 +20,8 @@ body {
 }
 
 .container {
-  margin: 30px auto;
-  width: 350px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 h1 {

@@ -58,7 +58,6 @@ export default function ItemList() {
 
     return (
         <>
-        
         <h3 
          style={{
             position: "absolute",
@@ -66,7 +65,9 @@ export default function ItemList() {
             top: '1%'
         }}
         >You have ${money}</h3>
-        <div className="card-group"
+        {/* switch to grid format */}
+        <div 
+        className="container"
          style={{
             position: "absolute",
             left: '10%',
@@ -88,11 +89,11 @@ export default function ItemList() {
                 item => <Cart item={item} remove={remove}/>
                 ) : "Cart is Empty"}
                 <br/>
+                {/* add total cost here */}
               <button
               disabled= {cart.length > 0 ? false : true}
               className="btn" onClick={checkOut}  >Check Out</button> 
         </div>
-
         </>
     )
 }
