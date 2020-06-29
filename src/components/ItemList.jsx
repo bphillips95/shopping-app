@@ -13,15 +13,18 @@ export default function ItemList() {
 
     const {cart,addItem,money,spendMoney,removeItem,addSameItem} = useContext(Context)
 
+    // cereals,dairy,condiments,veggies,energy bars
+
     const [itemList, setItemList] = useState([
-        {name: "Pizza", amount: 7, cost: 12, img: Pizza },
-        {name: "Cheerios", amount: 21, cost: 5, img: Cheerios},
-        {name: "Cheese", amount: 14, cost: 22, img: Cheese },
+        {name: "Pizza", amount: 7, cost: 12, img: Pizza, category: "dairy" },
+        {name: "Cheerios", amount: 21, cost: 5, img: Cheerios, category: "cereal"},
+        {name: "Cheese", amount: 14, cost: 22, img: Cheese, category: "dairy" },
         {name: "Fries", amount: 40, cost: 3, img: Fries },
-        {name: "Cocoa Pebbles", amount: 19, cost: 16, img: CocoaPebbles},
+        {name: "Cocoa Pebbles", amount: 19, cost: 16, img: CocoaPebbles, category: "cereal"},
         {name: "Shnitzel", amount: 19, cost: 16, img: Shnitzel},
-        {name: "Rice Krispies", amount: 19, cost: 16, img: RiceKrispies},
+        {name: "Rice Krispies", amount: 19, cost: 16, img: RiceKrispies, category: "cereal"},
     ])
+    let [filter, setFilter] = useState("")
     const handleBuy = (item) => {
         console.log(item)
         console.log(cart)
@@ -59,7 +62,8 @@ export default function ItemList() {
             item.amount++
             )
     }
-
+    const dairyFilter = itemList.filter(item => item.category === "dairy")
+    const cerealFilter = itemList.filter(item => item.category === "cereal")
     return (
         <>
         <h3 
@@ -70,6 +74,20 @@ export default function ItemList() {
         }}
         >You have ${money}</h3>
         {/* switch to grid format */}
+            <div  style={{
+                position: "absolute",
+                left: '70%',
+                top: '5%'}} className="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Filter Items
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button value={""} onClick={() => setFilter("")} class="dropdown-item" type="button">All</button>
+              <button value={"dairy"} onClick={() => setFilter("dairy")}
+               class="dropdown-item" type="button">Dairy</button>
+              <button value={"cereal"} onClick={() => setFilter("cereal")} class="dropdown-item" type="button">Cereals</button>
+            </div>
+          </div>
         <div 
         className="container"
          style={{
@@ -78,8 +96,9 @@ export default function ItemList() {
             top: '15%',
             right: '20%'
         }}
-        >
-            {itemList.map(item => <Item item={item} handleBuy={handleBuy}/>)}
+        >{filter === "" ? itemList.map(item => <Item item={item} handleBuy={handleBuy}/>) : null}
+         {filter === "dairy" ? dairyFilter.map(item => <Item item={item} handleBuy={handleBuy}/>) : null}
+         {filter === "cereal" ? cerealFilter.map(item => <Item item={item} handleBuy={handleBuy}/>) : null}
         </div>
         <div 
         style={{
