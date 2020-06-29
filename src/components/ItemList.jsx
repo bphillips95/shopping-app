@@ -6,7 +6,9 @@ import Cheerios from './images/cheerios.jpg'
 import Cheese from './images/cheese.jpg'
 import Fries from './images/fries.jpg'
 import Pizza from './images/pizza-pic.jpg'
-
+import CocoaPebbles from './images/cocoa-pebbles.jpeg'
+import Shnitzel from './images/shnitzel.jpeg'
+import RiceKrispies from './images/rice-krispies.jpeg'
 export default function ItemList() {
 
     const {cart,addItem,money,spendMoney,removeItem,addSameItem} = useContext(Context)
@@ -15,8 +17,10 @@ export default function ItemList() {
         {name: "Pizza", amount: 7, cost: 12, img: Pizza },
         {name: "Cheerios", amount: 21, cost: 5, img: Cheerios},
         {name: "Cheese", amount: 14, cost: 22, img: Cheese },
-        {name: "Fries", amount: 40, cost: 3, img: Fries }
-        // {name: "Shnitzel", amount: 19, cost: 16, img: ""}
+        {name: "Fries", amount: 40, cost: 3, img: Fries },
+        {name: "Cocoa Pebbles", amount: 19, cost: 16, img: CocoaPebbles},
+        {name: "Shnitzel", amount: 19, cost: 16, img: Shnitzel},
+        {name: "Rice Krispies", amount: 19, cost: 16, img: RiceKrispies},
     ])
     const handleBuy = (item) => {
         console.log(item)
