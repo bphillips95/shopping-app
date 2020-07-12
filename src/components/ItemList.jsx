@@ -9,8 +9,33 @@ import Pizza from './images/pizza-pic.jpg'
 import CocoaPebbles from './images/cocoa-pebbles.jpeg'
 import Shnitzel from './images/shnitzel.jpeg'
 import RiceKrispies from './images/rice-krispies.jpeg'
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.background.paper,
+    },
+    gridList: {
+      width: 500,
+      height: 450,
+    },
+    icon: {
+      color: 'rgba(255, 255, 255, 0.54)',
+    },
+  }));
+// import tileData from './tileData';
 export default function ItemList() {
 
+    const classes = useStyles();
     const {cart,addItem,money,spendMoney,removeItem,addSameItem} = useContext(Context)
 
     // cereals,dairy,condiments,veggies,energy bars
@@ -64,17 +89,18 @@ export default function ItemList() {
     }
     const dairyFilter = itemList.filter(item => item.category === "dairy")
     const cerealFilter = itemList.filter(item => item.category === "cereal")
+
     return (
         <>
-        <h3 
+        {/* <h3 
          style={{
             position: "absolute",
             left: '40%',
             top: '1%'
         }}
-        >You have ${money}</h3>
+        >You have ${money}</h3> */}
         {/* switch to grid format */}
-            <div  style={{
+            {/* <div  style={{
                 position: "absolute",
                 left: '70%',
                 top: '5%'}} className="dropdown">
@@ -87,8 +113,30 @@ export default function ItemList() {
                class="dropdown-item" type="button">Dairy</button>
               <button value={"cereal"} onClick={() => setFilter("cereal")} class="dropdown-item" type="button">Cereals</button>
             </div>
-          </div>
-        <div 
+          </div> */}
+
+          <div className={classes.root}>
+      <GridList cellHeight={180} className={classes.gridList} style={{ minHeight: '100vh', width: '47%' }} >
+        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+          <ListSubheader component="div">Item List</ListSubheader>
+        </GridListTile>
+        {itemList.map((tile) => (
+          <GridListTile key={tile.img}>
+            <img src={tile.img} alt={tile.title} />
+            <GridListTileBar
+              title={tile.title}
+              subtitle={<span>by: {tile.author}</span>}
+              actionIcon={
+                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                </IconButton>
+              }
+            />
+          </GridListTile>
+        ))}
+      </GridList>
+
+    </div>
+        {/* <div 
         className="container"
          style={{
             position: "absolute",
@@ -99,7 +147,7 @@ export default function ItemList() {
         >{filter === "" ? itemList.map(item => <Item item={item} handleBuy={handleBuy}/>) : null}
          {filter === "dairy" ? dairyFilter.map(item => <Item item={item} handleBuy={handleBuy}/>) : null}
          {filter === "cereal" ? cerealFilter.map(item => <Item item={item} handleBuy={handleBuy}/>) : null}
-        </div>
+        </div> */}
         <div 
         style={{
             position: "absolute",
