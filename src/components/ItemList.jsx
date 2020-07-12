@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 import Item from './Item'
 import Cart from './Cart'
+import Filter from './Filter'
 import { Context } from '../context/GlobalState'
 import Cheerios from './images/cheerios.jpg'
 import Cheese from './images/cheese.jpg'
@@ -100,20 +101,7 @@ export default function ItemList() {
         }}
         >You have ${money}</h3> */}
         {/* switch to grid format */}
-            {/* <div  style={{
-                position: "absolute",
-                left: '70%',
-                top: '5%'}} className="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filter Items
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button value={""} onClick={() => setFilter("")} class="dropdown-item" type="button">All</button>
-              <button value={"dairy"} onClick={() => setFilter("dairy")}
-               class="dropdown-item" type="button">Dairy</button>
-              <button value={"cereal"} onClick={() => setFilter("cereal")} class="dropdown-item" type="button">Cereals</button>
-            </div>
-          </div> */}
+        <Filter setFilter={setFilter} />
 
           <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList} style={{ minHeight: '100vh', width: '47%' }} >
