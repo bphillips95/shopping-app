@@ -9,8 +9,7 @@ export default function Cart({remove,item}) {
         <br/>
         <small>Quantity - {item.quantity}</small> 
       
-           
-            
+          
         </div>
         </>
     )
