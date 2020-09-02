@@ -10,7 +10,7 @@ function App() {
       // className="container"
       >
         <GlobalProvider >
-        <ItemList/> 
+        <ItemList/>
         </GlobalProvider>
       </div>
   );
