@@ -6,7 +6,7 @@ export default (state, { type, payload }) => {
         return { ...state,
             cart: [...state.cart, Object.assign(payload, {quantity: 1})]
         }
-    case 'ADD_SAME_ITEM':
+    case 'ADD_SAME_ITEM':  
         console.log(payload)
         let newCart = [...state.cart, payload]
         let unique = [...new Set(newCart)];
