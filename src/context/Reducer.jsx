@@ -11,7 +11,7 @@ export default (state, { type, payload }) => {
         let newCart = [...state.cart, payload]
         let unique = [...new Set(newCart)];
         // still running twice
-        return { ...state, 
+        return { ...state,   
             cart: unique
         }
     case 'SPEND_MONEY':
