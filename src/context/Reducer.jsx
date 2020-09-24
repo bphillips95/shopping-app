@@ -25,7 +25,7 @@ export default (state, { type, payload }) => {
             ...state,
             cart: [...state.cart.filter((item,index) => item !== payload)]
         }
-    default:
+    default:  
         return state
     }
 }
