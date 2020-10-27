@@ -7,7 +7,7 @@ export default (state, { type, payload }) => {
             cart: [...state.cart, Object.assign(payload, {quantity: 1})]
         }
     case 'ADD_SAME_ITEM':  
-        console.log(payload)
+        console.log(payload)  
         let newCart = [...state.cart, payload]
         let unique = [...new Set(newCart)];
         // still running twice
